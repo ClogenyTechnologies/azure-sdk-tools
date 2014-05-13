@@ -18,25 +18,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
     {
         protected const string VirtualMachineChefExtensionNoun = "AzureVMChefExtension";
 
-        protected const string ExtensionDefaultPublisher = "Chef.Bootstrap.WindowsAzure";
-        protected const string ExtensionDefaultName = "ChefClient";
-        protected const string LinuxExtensionName = "LinuxChefClient";
-        protected const string ExtensionDefaultVersion = "11.12";
-        protected const string PrivateConfigurationTemplate = "{{\"validation_key\":\"{0}\"}}";
-        protected const string ClientRbTemplate = "\"client_rb\":\"{0}\"";
-        protected const string RunListTemplate = "\"runlist\": \"\\\"{0}\\\"\"";
+        protected const string ExtensionDefaultPublisher = "Chef.Azure";
+        protected const string ExtensionDefaultName = "ChefAgent";
 
         public VirtualMachineChefExtensionCmdletBase()
         {
             base.publisherName = ExtensionDefaultPublisher;
-        }
-
-        // Currently we have platform-wise extension names,
-        // So it uses VM object's platform details to find out platform specific extension name.
-        // This helper method is used for Get/Remove AzureVMChefExtension.
-        protected string GetPlatformSpecificExtensionName()
-        {
-           return VM.GetInstance().OSVirtualHardDisk.OS == "Windows" ? ExtensionDefaultName : LinuxExtensionName;
+            base.extensionName = ExtensionDefaultName;
         }
     }
 }
