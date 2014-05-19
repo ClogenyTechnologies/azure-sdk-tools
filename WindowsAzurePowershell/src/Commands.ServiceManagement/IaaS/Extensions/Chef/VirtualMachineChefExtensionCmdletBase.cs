@@ -21,8 +21,8 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         protected const string ExtensionDefaultPublisher = "Chef.Bootstrap.WindowsAzure";
         protected const string ExtensionDefaultName = "ChefClient";
         protected const string ExtensionDefaultVersion = "11.12";
-        protected const string PrivateConfigurationTemplate = "{{\"validation_key\" : \"{0}\" }}";
-        protected const string PublicConfigurationTemplate = "{{\r\n \"client_rb\": \"{0}\",\r\n\"runlist\": \"\\\"{1}\\\"\"\r\n}}";
+        protected const string PrivateConfigurationTemplate = "{{\"validation_key\":\"{0}\"}}";
+        protected const string PublicConfigurationTemplate = "{{\"client_rb\":\"{0}\",\"runlist\": \"\\\"{1}\\\"\"}}";
 
         public VirtualMachineChefExtensionCmdletBase()
         {
