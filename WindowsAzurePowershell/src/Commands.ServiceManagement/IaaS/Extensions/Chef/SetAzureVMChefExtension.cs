@@ -100,7 +100,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
             if (!string.IsNullOrEmpty(this.ClientRb))
             {
-                ClientConfig = File.ReadAllText(this.ClientRb).TrimEnd('\r', '\n');
+                ClientConfig = File.ReadAllText(this.ClientRb).Replace("\"", "\\\"").TrimEnd('\r', '\n');
 
                 if (!string.IsNullOrEmpty(this.ChefServerUrl) && !string.IsNullOrEmpty(this.ValidationClientName))
                 {
@@ -127,10 +127,11 @@ validation_client_name 	\""{0}\""
             }
             else if (!string.IsNullOrEmpty(this.ChefServerUrl) && !string.IsNullOrEmpty(this.ValidationClientName))
             {
-                ClientConfig = @"
+                string UserConfig = @"
 chef_server_url  \""{0}\""
 validation_client_name 	\""{1}\""
 ";
+                ClientConfig = string.Format(UserConfig, this.ChefServerUrl, this.ValidationClientName);
             }
             this.PublicConfiguration = string.Format(PublicConfigurationTemplate, ClientConfig, this.RunList);
         }
