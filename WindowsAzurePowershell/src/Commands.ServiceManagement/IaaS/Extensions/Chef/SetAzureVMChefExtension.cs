@@ -73,10 +73,17 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         [ValidateNotNullOrEmpty]
         public string ValidationClientName { get; set; }
 
+        [Parameter(
+            Mandatory = false,
+            ValueFromPipelineByPropertyName = true,
+            HelpMessage = "The Chef Organization name, used to form Validation Client Name.")]
+        [ValidateNotNullOrEmpty]
+        public string OrganizationName { get; set; }
+
         internal void ExecuteCommand()
         {
-            ValidateParameters();
             SetDefault();
+            ValidateParameters();
             SetPrivateConfig();
             SetPublicConfig();
             RemovePredicateExtensions();
@@ -87,6 +94,12 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         internal void SetDefault()
         {
             this.Version = this.Version ?? ExtensionDefaultVersion;
+
+            // form validation client name using organization name.
+            if (!string.IsNullOrEmpty(this.OrganizationName))
+            {
+                this.ValidationClientName = this.OrganizationName + "-validator";
+            }
         }
 
         internal void SetPrivateConfig()
@@ -139,7 +152,7 @@ validation_client_name 	\""{1}\""
         protected override void ValidateParameters()
         {
             base.ValidateParameters();
-            if (string.IsNullOrEmpty(this.ClientRb) && (string.IsNullOrEmpty(this.ChefServerUrl) && string.IsNullOrEmpty(this.ValidationClientName)))
+            if (string.IsNullOrEmpty(this.ClientRb) && (string.IsNullOrEmpty(this.ChefServerUrl) || string.IsNullOrEmpty(this.ValidationClientName)))
             {
                 throw new ArgumentException("Required -ClientRb or -ChefServerUrl and -ValidationClientName options.");
             }
