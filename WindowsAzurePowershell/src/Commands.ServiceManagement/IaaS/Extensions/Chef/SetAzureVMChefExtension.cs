@@ -18,16 +18,19 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
     using System;
     using System.IO;
     using Microsoft.WindowsAzure.Commands.ServiceManagement.Model;
+    using Microsoft.WindowsAzure.Commands.ServiceManagement.Helpers;
 
     [Cmdlet(
         VerbsCommon.Set,
         VirtualMachineChefExtensionNoun,
-        DefaultParameterSetName = SetChefExtensionParamSetName),
+        DefaultParameterSetName = WindowsParameterSetName),
     OutputType(
         typeof(IPersistentVM))]
     public class SetAzureVMChefExtensionCommand : VirtualMachineChefExtensionCmdletBase
     {
         protected const string SetChefExtensionParamSetName = "SetChefExtension";
+        protected const string LinuxParameterSetName = OS.Linux;
+        protected const string WindowsParameterSetName = OS.Windows;
 
         [Parameter(
             Mandatory = false,
@@ -80,6 +83,26 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         [ValidateNotNullOrEmpty]
         public string OrganizationName { get; set; }
 
+        [Parameter(
+            Mandatory = true,
+            ParameterSetName = LinuxParameterSetName,
+            HelpMessage = "Set extension for Linux.")]
+        public SwitchParameter Linux
+        {
+            get;
+            set;
+        }
+
+        [Parameter(
+            Mandatory = true,
+            ParameterSetName = WindowsParameterSetName,
+            HelpMessage = "Set extension for Windows.")]
+        public SwitchParameter Windows
+        {
+            get;
+            set;
+        }
+
         internal void ExecuteCommand()
         {
             SetDefault();
@@ -99,6 +122,15 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             if (!string.IsNullOrEmpty(this.OrganizationName))
             {
                 this.ValidationClientName = this.OrganizationName + "-validator";
+            }
+
+            if (this.Linux.IsPresent)
+            {
+                base.extensionName = LinuxExtensionName;
+            }
+            else if (this.Windows.IsPresent)
+            {
+                base.extensionName = ExtensionDefaultName;
             }
         }
 
