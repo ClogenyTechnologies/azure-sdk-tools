@@ -23,18 +23,17 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         VirtualMachineChefExtensionNoun,
         DefaultParameterSetName = GetChefExtensionParamSetName),
     OutputType(
-        typeof(IEnumerable<VirtualMachineExtensionContext>))]
+        typeof(IEnumerable<VirtualMachineChefExtensionContext>))]
     public class GetAzureVMChefExtensionCommand : VirtualMachineChefExtensionCmdletBase
     {
         protected const string GetChefExtensionParamSetName = "GetChefExtension";
 
         internal void ExecuteCommand()
         {
-            base.extensionName = GetPlatformSpecificExtensionName();
             var extensionRefs = GetPredicateExtensionList();
             WriteObject(
                 extensionRefs == null ? null : extensionRefs.Select(
-                r => new VirtualMachineExtensionContext
+                r => new VirtualMachineChefExtensionContext
                 {
                     ExtensionName = r.Name,
                     Publisher = r.Publisher,

@@ -28,7 +28,6 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         internal void ExecuteCommand()
         {
-            base.extensionName = GetPlatformSpecificExtensionName();
             RemovePredicateExtensions();
             WriteObject(VM);
         }
