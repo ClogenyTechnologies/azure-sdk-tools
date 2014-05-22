@@ -34,7 +34,6 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         [Parameter(
             Mandatory = false,
-            Position = 2,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Extension Version. Default is 11.12.")]
         [ValidateNotNullOrEmpty]
@@ -42,7 +41,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         [Parameter(
             Mandatory = true,
-            Position = 3,
+            Position = 1,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Chef Server Validation Key File Path.")]
         [ValidateNotNullOrEmpty]
