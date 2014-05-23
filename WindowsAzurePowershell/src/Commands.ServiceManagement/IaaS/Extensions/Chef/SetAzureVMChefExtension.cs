@@ -145,7 +145,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             if (!string.IsNullOrEmpty(this.ClientRb))
             {
                 ClientConfig = File.ReadAllText(this.ClientRb).Replace("\"", "\\\"").TrimEnd('\r', '\n');
-
+                // Append ChefServerUrl and ValidationClientName to end of ClientRb
                 if (!string.IsNullOrEmpty(this.ChefServerUrl) && !string.IsNullOrEmpty(this.ValidationClientName))
                 {
                     string UserConfig = @"
@@ -154,6 +154,7 @@ validation_client_name 	\""{1}\""
 ";
                     ClientConfig += string.Format(UserConfig, this.ChefServerUrl, this.ValidationClientName);
                 }
+                // Append ChefServerUrl to end of ClientRb
                 else if (!string.IsNullOrEmpty(this.ChefServerUrl))
                 {
                     string UserConfig = @"
@@ -161,6 +162,7 @@ chef_server_url  \""{0}\""
 ";
                     ClientConfig += string.Format(UserConfig, this.ChefServerUrl);
                 }
+                // Append ValidationClientName to end of ClientRb
                 else if (!string.IsNullOrEmpty(this.ValidationClientName))
                 {
                     string UserConfig = @"
@@ -169,6 +171,7 @@ validation_client_name 	\""{0}\""
                     ClientConfig += string.Format(UserConfig, this.ValidationClientName);
                 }
             }
+            // Create ClientRb config using ChefServerUrl and ValidationClientName
             else if (!string.IsNullOrEmpty(this.ChefServerUrl) && !string.IsNullOrEmpty(this.ValidationClientName))
             {
                 string UserConfig = @"
@@ -183,6 +186,7 @@ validation_client_name 	\""{1}\""
         protected override void ValidateParameters()
         {
             base.ValidateParameters();
+            // Validate ClientRb or ChefServerUrl and ValidationClientName should exist.
             if (string.IsNullOrEmpty(this.ClientRb) && (string.IsNullOrEmpty(this.ChefServerUrl) || string.IsNullOrEmpty(this.ValidationClientName)))
             {
                 throw new ArgumentException("Required -ClientRb or -ChefServerUrl and -ValidationClientName options.");
