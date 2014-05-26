@@ -14,20 +14,7 @@
 
 namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 {
-    public class VirtualMachineChefExtensionCmdletBase : VirtualMachineExtensionCmdletBase
+    public class VirtualMachineChefExtensionContext : VirtualMachineExtensionContext
     {
-        protected const string VirtualMachineChefExtensionNoun = "AzureVMChefExtension";
-
-        protected const string ExtensionDefaultPublisher = "Chef.Bootstrap.WindowsAzure";
-        protected const string ExtensionDefaultName = "ChefClient";
-        protected const string LinuxExtensionName = "LinuxChefClient";
-        protected const string ExtensionDefaultVersion = "11.12";
-        protected const string PrivateConfigurationTemplate = "{{\"validation_key\":\"{0}\"}}";
-        protected const string PublicConfigurationTemplate = "{{\"client_rb\":\"{0}\"}}";
-
-        public VirtualMachineChefExtensionCmdletBase()
-        {
-            base.publisherName = ExtensionDefaultPublisher;
-        }
     }
 }
