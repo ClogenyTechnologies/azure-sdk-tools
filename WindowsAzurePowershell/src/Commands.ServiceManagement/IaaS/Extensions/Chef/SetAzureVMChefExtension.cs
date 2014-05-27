@@ -113,72 +113,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             WriteObject(VM);
         }
 
-        internal bool IsValidationClientNameEmpty()
-        {
-            if (string.IsNullOrEmpty(this.ValidationClientName))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        internal bool IsChefServerUrlEmpty()
-        {
-            if (string.IsNullOrEmpty(this.ChefServerUrl))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        internal bool IsOrganizationNameEmpty()
-        {
-            if (string.IsNullOrEmpty(this.OrganizationName))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        internal bool IsClientRbEmpty()
-        {
-            if (string.IsNullOrEmpty(this.ClientRb))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        internal bool IsRunListEmpty()
-        {
-            if (string.IsNullOrEmpty(this.RunList))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         internal void SetDefault()
         {
+            bool IsOrganizationNameEmpty = string.IsNullOrEmpty(this.OrganizationName);
             this.Version = this.Version ?? ExtensionDefaultVersion;
 
             // form validation client name using organization name.
-            if (!IsOrganizationNameEmpty())
+            if (!IsOrganizationNameEmpty)
             {
                 this.ValidationClientName = this.OrganizationName + "-validator";
             }
@@ -201,7 +142,10 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         internal void SetPublicConfig()
         {
             string ClientConfig = string.Empty;
-            string RunlistTemplate = ",\"runlist\": \"\\\"{0}\\\"\"}}";
+            bool IsClientRbEmpty = string.IsNullOrEmpty(this.ClientRb);
+            bool IsChefServerUrlEmpty = string.IsNullOrEmpty(this.ChefServerUrl);
+            bool IsValidationClientNameEmpty = string.IsNullOrEmpty(this.ValidationClientName);
+            bool IsRunListEmpty = string.IsNullOrEmpty(this.RunList);
 
             //Cases handled:
             // 1. When clientRb given by user and:
@@ -210,11 +154,11 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             //    1.3 if ValidationClientName given then append it to end of ClientRb
             // 2. When ClientRb not given but ChefServerUrl and ValidationClientName given by user then create ClientRb config using these values.
 
-            if (!IsClientRbEmpty())
+            if (!IsClientRbEmpty)
             {
                 ClientConfig = File.ReadAllText(this.ClientRb).Replace("\"", "\\\"").TrimEnd('\r', '\n');
                 // Append ChefServerUrl and ValidationClientName to end of ClientRb
-                if (!IsChefServerUrlEmpty() && !IsValidationClientNameEmpty())
+                if (!IsChefServerUrlEmpty && !IsValidationClientNameEmpty)
                 {
                     string UserConfig = @"
 chef_server_url  \""{0}\""
@@ -223,7 +167,7 @@ validation_client_name 	\""{1}\""
                     ClientConfig += string.Format(UserConfig, this.ChefServerUrl, this.ValidationClientName);
                 }
                 // Append ChefServerUrl to end of ClientRb
-                else if (!IsChefServerUrlEmpty())
+                else if (!IsChefServerUrlEmpty)
                 {
                     string UserConfig = @"
 chef_server_url  \""{0}\""
@@ -231,7 +175,7 @@ chef_server_url  \""{0}\""
                     ClientConfig += string.Format(UserConfig, this.ChefServerUrl);
                 }
                 // Append ValidationClientName to end of ClientRb
-                else if (!IsValidationClientNameEmpty())
+                else if (!IsValidationClientNameEmpty)
                 {
                     string UserConfig = @"
 validation_client_name 	\""{0}\""
@@ -240,7 +184,7 @@ validation_client_name 	\""{0}\""
                 }
             }
             // Create ClientRb config using ChefServerUrl and ValidationClientName
-            else if (!IsChefServerUrlEmpty() && !IsValidationClientNameEmpty())
+            else if (!IsChefServerUrlEmpty && !IsValidationClientNameEmpty)
             {
                 string UserConfig = @"
 chef_server_url  \""{0}\""
@@ -249,18 +193,24 @@ validation_client_name 	\""{1}\""
                 ClientConfig = string.Format(UserConfig, this.ChefServerUrl, this.ValidationClientName);
             }
 
-            this.PublicConfiguration = string.Format(PublicConfigurationTemplate, ClientConfig);
-            if (!IsRunListEmpty())
+            if (IsRunListEmpty)
             {
-                this.PublicConfiguration = this.PublicConfiguration.Replace("}", string.Format(RunlistTemplate, this.RunList));
+                this.PublicConfiguration = string.Format("{{{0}}}", string.Format(ClientRbTemplate, ClientConfig));
+            }
+            else
+            {
+                this.PublicConfiguration = string.Format("{{{0},{1}}}", string.Format(ClientRbTemplate, ClientConfig), string.Format(RunListTemplate, this.RunList));
             }
         }
 
         protected override void ValidateParameters()
         {
             base.ValidateParameters();
+            bool IsClientRbEmpty = string.IsNullOrEmpty(this.ClientRb);
+            bool IsChefServerUrlEmpty = string.IsNullOrEmpty(this.ChefServerUrl);
+            bool IsValidationClientNameEmpty = string.IsNullOrEmpty(this.ValidationClientName);
             // Validate ClientRb or ChefServerUrl and ValidationClientName should exist.
-            if (IsClientRbEmpty() && (IsChefServerUrlEmpty() || IsValidationClientNameEmpty()))
+            if (IsClientRbEmpty && (IsChefServerUrlEmpty || IsValidationClientNameEmpty))
             {
                 throw new ArgumentException("Required -ClientRb or -ChefServerUrl and -ValidationClientName options.");
             }
