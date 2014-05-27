@@ -23,7 +23,8 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         protected const string LinuxExtensionName = "LinuxChefClient";
         protected const string ExtensionDefaultVersion = "11.12";
         protected const string PrivateConfigurationTemplate = "{{\"validation_key\":\"{0}\"}}";
-        protected const string PublicConfigurationTemplate = "{{\"client_rb\":\"{0}\"}}";
+        protected const string ClientRbTemplate = "\"client_rb\":\"{0}\"";
+        protected const string RunListTemplate = "\"runlist\": \"\\\"{0}\\\"\"";
 
         public VirtualMachineChefExtensionCmdletBase()
         {
