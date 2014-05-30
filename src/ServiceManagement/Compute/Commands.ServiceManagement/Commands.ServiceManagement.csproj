@@ -209,6 +209,10 @@
     <Compile Include="IaaS\Extensions\BGInfo\SetAzureVMBGInfoExtension.cs" />
     <Compile Include="IaaS\Extensions\BGInfo\VirtualMachineBGInfoExtensionCmdletBase.cs" />
     <Compile Include="IaaS\Extensions\BGInfo\VirtualMachineBGInfoExtensionContext.cs" />
+    <Compile Include="IaaS\Extensions\Chef\GetAzureVMChefExtension.cs" />
+    <Compile Include="IaaS\Extensions\Chef\RemoveAzureVMChefExtension.cs" />
+    <Compile Include="IaaS\Extensions\Chef\SetAzureVMChefExtension.cs" />
+    <Compile Include="IaaS\Extensions\Chef\VirtualMachineChefExtensionCmdletBase.cs" />
     <Compile Include="IaaS\Extensions\Common\GetAzureVMExtension.cs" />
     <Compile Include="IaaS\Extensions\Common\RemoveAzureVMExtension.cs" />
     <Compile Include="IaaS\Extensions\Common\SetAzureVMExtension.cs" />
