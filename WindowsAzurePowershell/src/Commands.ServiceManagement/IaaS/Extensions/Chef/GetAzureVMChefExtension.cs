@@ -30,6 +30,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         internal void ExecuteCommand()
         {
+            base.extensionName = GetPlatformSpecificExtensionName();
             var extensionRefs = GetPredicateExtensionList();
             WriteObject(
                 extensionRefs == null ? null : extensionRefs.Select(

@@ -30,5 +30,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         {
             base.publisherName = ExtensionDefaultPublisher;
         }
+
+        // Currently we have platform-wise extension names,
+        // So it uses VM object's platform details to find out platform specific extension name.
+        // This helper method is used for Get/Remove AzureVMChefExtension.
+        protected string GetPlatformSpecificExtensionName()
+        {
+           return VM.GetInstance().OSVirtualHardDisk.OS == "Windows" ? ExtensionDefaultName : LinuxExtensionName;
+        }
     }
 }
