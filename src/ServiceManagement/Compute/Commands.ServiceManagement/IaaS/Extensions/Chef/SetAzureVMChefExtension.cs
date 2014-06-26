@@ -18,8 +18,8 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
     using System;
     using System.IO;
     using System.Text.RegularExpressions;
-    using Microsoft.WindowsAzure.Commands.ServiceManagement.Model;
-    using Microsoft.WindowsAzure.Commands.ServiceManagement.Helpers;
+    using Model;
+    using Helpers;
 
     [Cmdlet(
         VerbsCommon.Set,
@@ -42,7 +42,6 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         [Parameter(
             Mandatory = true,
-            Position = 1,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Chef Server Validation Key File Path.")]
         [ValidateNotNullOrEmpty]
@@ -87,21 +86,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             Mandatory = true,
             ParameterSetName = LinuxParameterSetName,
             HelpMessage = "Set extension for Linux.")]
-        public SwitchParameter Linux
-        {
-            get;
-            set;
-        }
+        public SwitchParameter Linux { get; set; }
 
         [Parameter(
             Mandatory = true,
             ParameterSetName = WindowsParameterSetName,
             HelpMessage = "Set extension for Windows.")]
-        public SwitchParameter Windows
-        {
-            get;
-            set;
-        }
+        public SwitchParameter Windows { get; set; }
 
         internal void ExecuteCommand()
         {
