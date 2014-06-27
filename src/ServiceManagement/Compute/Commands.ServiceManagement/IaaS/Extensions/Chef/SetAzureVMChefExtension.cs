@@ -105,7 +105,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             WriteObject(VM);
         }
 
-        internal void SetDefault()
+        private void SetDefault()
         {
             bool IsOrganizationNameEmpty = string.IsNullOrEmpty(this.OrganizationName);
             this.Version = this.Version ?? ExtensionDefaultVersion;
@@ -126,12 +126,12 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             }
         }
 
-        internal void SetPrivateConfig()
+        private void SetPrivateConfig()
         {
             this.PrivateConfiguration = string.Format(PrivateConfigurationTemplate, File.ReadAllText(this.ValidationPem).TrimEnd('\r', '\n'));
         }
 
-        internal void SetPublicConfig()
+        private void SetPublicConfig()
         {
             string ClientConfig = string.Empty;
             bool IsClientRbEmpty = string.IsNullOrEmpty(this.ClientRb);
