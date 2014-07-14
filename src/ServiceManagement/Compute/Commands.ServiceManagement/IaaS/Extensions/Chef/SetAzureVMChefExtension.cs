@@ -15,6 +15,7 @@
 namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 {
     using System.Management.Automation;
+    using System.Linq;
     using System;
     using System.IO;
     using System.Text.RegularExpressions;
@@ -105,10 +106,16 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             WriteObject(VM);
         }
 
+        private string GetLatestChefExtensionVersion()
+        {
+            var extensionList = this.ComputeClient.VirtualMachineExtensions.List();
+            return extensionList.ResourceExtensions.Where(extension => extension.Publisher == "Chef.Bootstrap.WindowsAzure").Max(extension => extension.Version);
+        }
+
         private void SetDefault()
         {
             bool IsOrganizationNameEmpty = string.IsNullOrEmpty(this.OrganizationName);
-            this.Version = this.Version ?? ExtensionDefaultVersion;
+            this.Version = this.Version ?? GetLatestChefExtensionVersion();
 
             // form validation client name using organization name.
             if (!IsOrganizationNameEmpty)
