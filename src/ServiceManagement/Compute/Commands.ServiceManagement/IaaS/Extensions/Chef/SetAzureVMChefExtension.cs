@@ -109,7 +109,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         private string GetLatestChefExtensionVersion()
         {
             var extensionList = this.ComputeClient.VirtualMachineExtensions.List();
-            return extensionList.ResourceExtensions.Where(extension => extension.Publisher == "Chef.Bootstrap.WindowsAzure").Max(extension => extension.Version);
+            return extensionList.ResourceExtensions.Where(extension => extension.Publisher == ExtensionDefaultPublisher).Max(extension => extension.Version);
         }
 
         private void SetDefault()
