@@ -109,14 +109,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         private string GetLatestChefExtensionVersion()
         {
             var extensionList = this.ComputeClient.VirtualMachineExtensions.List();
-            return extensionList.ResourceExtensions.Where(extension => extension.Publisher == ExtensionDefaultPublisher).Max(extension => extension.Version);
+            return extensionList.ResourceExtensions.Where(extension => extension.Publisher == ExtensionDefaultPublisher && extension.Name == base.extensionName).Max(extension => extension.Version);
         }
 
         private void SetDefault()
         {
             bool IsOrganizationNameEmpty = string.IsNullOrEmpty(this.OrganizationName);
-            this.Version = this.Version ?? GetLatestChefExtensionVersion();
-
+           
             // form validation client name using organization name.
             if (!IsOrganizationNameEmpty)
             {
@@ -131,6 +130,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             {
                 base.extensionName = ExtensionDefaultName;
             }
+            this.Version = this.Version ?? GetLatestChefExtensionVersion();
         }
 
         private void SetPrivateConfig()
