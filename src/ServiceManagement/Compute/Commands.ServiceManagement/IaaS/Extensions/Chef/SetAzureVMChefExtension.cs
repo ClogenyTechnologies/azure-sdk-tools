@@ -30,14 +30,12 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         typeof(IPersistentVM))]
     public class SetAzureVMChefExtensionCommand : VirtualMachineChefExtensionCmdletBase
     {
-        protected const string SetChefExtensionParamSetName = "SetChefExtension";
         protected const string LinuxParameterSetName = OS.Linux;
         protected const string WindowsParameterSetName = OS.Windows;
 
         [Parameter(
-            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
-            HelpMessage = "The Extension Version. Default is 11.12.")]
+            HelpMessage = "The Extension Version.")]
         [ValidateNotNullOrEmpty]
         public override string Version { get; set; }
 
@@ -49,35 +47,31 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         public string ValidationPem { get; set; }
 
         [Parameter(
-            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Chef Server Client Config (ClientRb)File Path.")]
         [ValidateNotNullOrEmpty]
         public string ClientRb { get; set; }
 
         [Parameter(
-            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Chef Server Node Runlist.")]
         [ValidateNotNullOrEmpty]
         public string RunList { get; set; }
 
         [Parameter(
-            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Chef Server Url.")]
         [ValidateNotNullOrEmpty]
         public string ChefServerUrl { get; set; }
 
         [Parameter(
-            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
-            HelpMessage = "The Chef ValidationClientName, used to determine whether a chef-client may register with a Chef server.")]
+            HelpMessage = "The Chef ValidationClientName," +
+                          " used to determine whether a chef-client may register with a Chef server.")]
         [ValidateNotNullOrEmpty]
         public string ValidationClientName { get; set; }
 
         [Parameter(
-            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             HelpMessage = "The Chef Organization name, used to form Validation Client Name.")]
         [ValidateNotNullOrEmpty]
@@ -109,13 +103,15 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         private string GetLatestChefExtensionVersion()
         {
             var extensionList = this.ComputeClient.VirtualMachineExtensions.List();
-            return extensionList.ResourceExtensions.Where(extension => extension.Publisher == ExtensionDefaultPublisher && extension.Name == base.extensionName).Max(extension => extension.Version);
+            return extensionList.ResourceExtensions.Where(
+                extension => extension.Publisher == ExtensionDefaultPublisher
+                && extension.Name == base.extensionName).Max(extension => extension.Version);
         }
 
         private void SetDefault()
         {
             bool IsOrganizationNameEmpty = string.IsNullOrEmpty(this.OrganizationName);
-           
+
             // form validation client name using organization name.
             if (!IsOrganizationNameEmpty)
             {
@@ -135,7 +131,8 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         private void SetPrivateConfig()
         {
-            this.PrivateConfiguration = string.Format(PrivateConfigurationTemplate, File.ReadAllText(this.ValidationPem).TrimEnd('\r', '\n'));
+            this.PrivateConfiguration = string.Format(PrivateConfigurationTemplate,
+                File.ReadAllText(this.ValidationPem).TrimEnd('\r', '\n'));
         }
 
         private void SetPublicConfig()
@@ -151,11 +148,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             //    1.1 if ChefServerUrl and ValidationClientName given then append it to end of ClientRb
             //    1.2 if ChefServerUrl given then append it to end of ClientRb
             //    1.3 if ValidationClientName given then append it to end of ClientRb
-            // 2. When ClientRb not given but ChefServerUrl and ValidationClientName given by user then create ClientRb config using these values.
+            // 2. When ClientRb not given but ChefServerUrl and ValidationClientName given by user then
+            //    create ClientRb config using these values.
 
             if (!IsClientRbEmpty)
             {
-                ClientConfig = Regex.Replace(File.ReadAllText(this.ClientRb), "\"|'", "\\\"").TrimEnd('\r', '\n');
+                ClientConfig = Regex.Replace(File.ReadAllText(this.ClientRb),
+                    "\"|'", "\\\"").TrimEnd('\r', '\n');
                 // Append ChefServerUrl and ValidationClientName to end of ClientRb
                 if (!IsChefServerUrlEmpty && !IsValidationClientNameEmpty)
                 {
@@ -194,11 +193,14 @@ validation_client_name 	\""{1}\""
 
             if (IsRunListEmpty)
             {
-                this.PublicConfiguration = string.Format("{{{0}}}", string.Format(ClientRbTemplate, ClientConfig));
+                this.PublicConfiguration = string.Format("{{{0}}}",
+                    string.Format(ClientRbTemplate, ClientConfig));
             }
             else
             {
-                this.PublicConfiguration = string.Format("{{{0},{1}}}", string.Format(ClientRbTemplate, ClientConfig), string.Format(RunListTemplate, this.RunList));
+                this.PublicConfiguration = string.Format("{{{0},{1}}}",
+                          string.Format(ClientRbTemplate, ClientConfig),
+                          string.Format(RunListTemplate, this.RunList));
             }
         }
 
@@ -211,7 +213,8 @@ validation_client_name 	\""{1}\""
             // Validate ClientRb or ChefServerUrl and ValidationClientName should exist.
             if (IsClientRbEmpty && (IsChefServerUrlEmpty || IsValidationClientNameEmpty))
             {
-                throw new ArgumentException("Required -ClientRb or -ChefServerUrl and -ValidationClientName options.");
+                throw new ArgumentException(
+                    "Required -ClientRb or -ChefServerUrl and -ValidationClientName options.");
             }
         }
 
