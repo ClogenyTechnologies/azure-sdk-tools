@@ -35,7 +35,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         [Parameter(
             ValueFromPipelineByPropertyName = true,
-            HelpMessage = "The Extension Version.")]
+            HelpMessage = "The Extension Version. Default is the latest available version")]
         [ValidateNotNullOrEmpty]
         public override string Version { get; set; }
 
