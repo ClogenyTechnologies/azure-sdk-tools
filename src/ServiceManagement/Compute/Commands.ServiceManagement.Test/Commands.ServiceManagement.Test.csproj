@@ -387,6 +387,8 @@
     </Compile>
     <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\VirtualMachineDscExtensionTests.cs" />
     <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\GetAzureVMChefExtensionCommandTests.cs" />
+    <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\RemoveAzureVMChefExtensionCommandTests.cs" />
+    <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\SetAzureVMChefExtensionCommandTests.cs" />
     <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\VirtualMachineExtensionImageFactoryTests.cs" />
     <Compile Include="FunctionalTests\VMTemplateTests.cs" />
   </ItemGroup>
