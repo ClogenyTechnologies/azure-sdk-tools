@@ -4,18 +4,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.Test.UnitTests.Cmdle
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Commands.ServiceManagement.IaaS;
-    using System.Net;
     using Commands.Test.Utilities.Common;
-    using Management.Compute;
-    using Management.Compute.Models;
     using ServiceManagement.IaaS.Extensions;
     using VisualStudio.TestTools.UnitTesting;
     using Microsoft.WindowsAzure.Commands.Utilities;
     using System.Management.Automation;
     using Model;
 
-    // TODO: abstract out for other cmdlets
     public class MockIPersistentVMForChefExtension : IPersistentVM
     {
         public PersistentVM GetInstance()
@@ -38,7 +33,6 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.Test.UnitTests.Cmdle
             };
         }
     }
-
 
     [TestClass]
     public class GetAzureVMChefExtensionCommandTests : TestBase
