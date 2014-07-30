@@ -74,6 +74,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.Extensions.Desktop.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Commands.Utilities">
+      <HintPath>..\..\..\Package\Debug\ServiceManagement\Azure\Compute\Microsoft.WindowsAzure.Commands.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Microsoft.WindowsAzure.Common.1.1.1\lib\net45\Microsoft.WindowsAzure.Common.dll</HintPath>
@@ -381,6 +384,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\GetAzureVMChefExtensionCommandTests.cs" />
+    <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\RemoveAzureVMChefExtensionCommandTests.cs" />
+    <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\SetAzureVMChefExtensionCommandTests.cs" />
     <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\VirtualMachineDscExtensionTests.cs" />
     <Compile Include="UnitTests\Cmdlets\IaaS\Extensions\VirtualMachineExtensionImageFactoryTests.cs" />
     <Compile Include="FunctionalTests\VMTemplateTests.cs" />
