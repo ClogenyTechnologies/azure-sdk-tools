@@ -15,21 +15,21 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.Test.UnitTests.Cmdle
     {
         public PersistentVM GetInstance()
         {
-            Model.PersistentVMModel.ResourceExtensionReference extensionRef = null;
-            extensionRef = new Model.PersistentVMModel.ResourceExtensionReference()
+            ResourceExtensionReference extensionRef = null;
+            extensionRef = new ResourceExtensionReference()
             {
                 Name = "ChefClient",
                 Publisher = "Chef.Bootstrap.WindowsAzure,",
                 Version = "11.0"
             };
 
-            var resourceList = new Model.PersistentVMModel.ResourceExtensionReferenceList();
+            var resourceList = new ResourceExtensionReferenceList();
             resourceList.Add(extensionRef);
 
             return new PersistentVM()
             {
                 ResourceExtensionReferences = resourceList,
-                OSVirtualHardDisk = new Model.PersistentVMModel.OSVirtualHardDisk() { OS = "Windows" }
+                OSVirtualHardDisk = new OSVirtualHardDisk() { OS = "Windows" }
             };
         }
     }
