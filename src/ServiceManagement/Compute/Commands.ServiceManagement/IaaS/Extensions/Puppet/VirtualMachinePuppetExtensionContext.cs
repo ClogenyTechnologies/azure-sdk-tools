@@ -14,7 +14,5 @@
 
 namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 {
-    public class VirtualMachinePuppetExtensionContext : VirtualMachineExtensionContext
-    {
-    }
+    public class VirtualMachinePuppetExtensionContext : VirtualMachineExtensionContext { }
 }
