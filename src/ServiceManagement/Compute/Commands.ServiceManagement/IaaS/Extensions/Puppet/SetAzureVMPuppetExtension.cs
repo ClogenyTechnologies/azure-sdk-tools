@@ -84,7 +84,8 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         {
             string serializedValue = Newtonsoft.Json.JsonConvert.SerializeObject(value);
 
-            // Since SerializeObject method automatically surrounds result with double quotes, we need to remove them.
+            // Since SerializeObject method automatically surrounds result with double quotes, 
+            // we need to remove them.
             return serializedValue.Trim('"');
         }
     }
