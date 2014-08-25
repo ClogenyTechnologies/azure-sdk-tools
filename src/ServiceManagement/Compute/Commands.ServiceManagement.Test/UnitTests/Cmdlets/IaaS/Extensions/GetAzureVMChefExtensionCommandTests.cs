@@ -56,6 +56,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.Test.UnitTests.Cmdle
         }
 
         [TestMethod]
+        [TestCategory(Category.Functional)]
         public void GetAzureVMChefExtensionExecuteChefCommand()
         {
             var getChefExtension = new GetAzureVMChefExtensionCommandStub()

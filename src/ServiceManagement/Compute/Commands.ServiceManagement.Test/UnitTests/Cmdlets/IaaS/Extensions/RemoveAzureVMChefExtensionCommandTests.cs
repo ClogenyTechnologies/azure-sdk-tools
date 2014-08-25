@@ -31,6 +31,7 @@
         }
 
         [TestMethod]
+        [TestCategory(Category.Functional)]
         public void RemoveAzureVMChefExtensionExecuteChefCommand()
         {
 

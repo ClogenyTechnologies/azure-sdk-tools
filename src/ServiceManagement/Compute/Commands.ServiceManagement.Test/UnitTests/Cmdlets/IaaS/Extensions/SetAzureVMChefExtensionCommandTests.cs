@@ -36,6 +36,7 @@
         }
 
         [TestMethod]
+        [TestCategory(Category.Functional)]
         public void SetAzureVMChefExtensionExecuteChefCommand()
         {
             var setChefExtension = new SetAzureVMChefExtensionCommandStub()
@@ -52,6 +53,7 @@
         }
 
         [TestMethod]
+        [TestCategory(Category.Functional)]
         [ExpectedException(typeof(ArgumentException), 
             "Required -ClientRb or -ChefServerUrl and -ValidationClientName options.")]
         public void SetAzureVMChefExtensionValidateMissingClientRBAndChefServerUrlOrValidationClientName()
@@ -68,6 +70,7 @@
         }
 
         [TestMethod]
+        [TestCategory(Category.Functional)]
         [ExpectedException(typeof(ArgumentException), 
             "Required -ClientRb or -ChefServerUrl and -ValidationClientName options.")]
         public void SetAzureVMChefExtensionValidateGivenValidationClientNameAndMissingChefServerUrl()
@@ -86,6 +89,7 @@
         }
 
         [TestMethod]
+        [TestCategory(Category.Functional)]
         [ExpectedException(typeof(ArgumentException), 
             "Required -ClientRb or -ChefServerUrl and -ValidationClientName options.")]
         public void SetAzureVMChefExtensionValidateGivenChefServerUrlAndMissingChefValidationClientName()
