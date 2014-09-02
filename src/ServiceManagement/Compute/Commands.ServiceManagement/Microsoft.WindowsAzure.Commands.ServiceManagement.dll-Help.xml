@@ -1769,9 +1769,9 @@ When creating an Active Directory domain joined server, the provisioning configu
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
 				<maml:name>CustomDataFile</maml:name>
 				<maml:description>
-					<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request. 
+					<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request.
 
-On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.  
+On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.
 On Linux, this data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning. The agent will also place the base-64 encoded data in /var/lib/waagent/CustomData during provisioning.</maml:para>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -1943,9 +1943,9 @@ On Linux, this data is passed to the VM via the ovf-env.xml file, which is copie
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
 				<maml:name>CustomDataFile</maml:name>
 				<maml:description>
-					<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request. 
+					<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request.
 
-On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.  
+On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.
 On Linux, this data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning. The agent will also place the base-64 encoded data in /var/lib/waagent/CustomData during provisioning.</maml:para>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -1977,9 +1977,9 @@ On Linux, this data is passed to the VM via the ovf-env.xml file, which is copie
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
 				<maml:name>CustomDataFile</maml:name>
 				<maml:description>
-					<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request. 
+					<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request.
 
-On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.  
+On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.
 On Linux, this data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning. The agent will also place the base-64 encoded data in /var/lib/waagent/CustomData during provisioning.</maml:para>
 				</maml:description>
 				<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -2147,9 +2147,9 @@ On Linux, this data is passed to the VM via the ovf-env.xml file, which is copie
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="named">
 			<maml:name>CustomDataFile</maml:name>
 			<maml:description>
-				<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request. 
+				<maml:para>This parameter takes a file name as an argument. PowerShell will then base64 encode the contents of the file and send it along with the provisioning configuration information.  The file must be less than 64KB or the Azure API will not accept the request.
 
-On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.  
+On Windows this data ends up in %SYSTEMDRIVE%\AzureData\CustomData.bin as a binary file.
 On Linux, this data is passed to the VM via the ovf-env.xml file, which is copied to the /var/lib/waagent directory during provisioning. The agent will also place the base-64 encoded data in /var/lib/waagent/CustomData during provisioning.</maml:para>
 			</maml:description>
 			<command:parameterValue required="true" variableLength="false">String</command:parameterValue>
@@ -3204,7 +3204,7 @@ New-AzureVMConfig -Name &quot;MyNonDomainVM&quot; -InstanceSize Small -ImageName
 	<maml:description>
 	<!--This is the Description section-->
 		<maml:para>The Export-AzureVM cmdlet exports the state of a virtual machine to an xml file.
-      
+
         Note: Using Export-AzureVM, followed by Remove-AzureVM and then Import-AzureVM to recreate a virtual machine can cause the resultant virtual machine to have a different IP address than the original.</maml:para>
 	</maml:description>
 	<command:syntax>
@@ -5843,7 +5843,7 @@ New-AzureVMConfig -Name &quot;MyNonDomainVM&quot; -InstanceSize Small -ImageName
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>Slot</maml:name>
 				<maml:description>
-					<maml:para>Specifies a deployment slot. Valid values are: 
+					<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -5870,7 +5870,7 @@ The default value is Production.</maml:para>
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 			<maml:name>Slot</maml:name>
 			<maml:description>
-				<maml:para>Specifies a deployment slot. Valid values are: 
+				<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -9490,7 +9490,7 @@ The default value is Production.</maml:para>
 	<maml:description>
 	<!--This is the Description section-->
 		<maml:para>The Import-AzureVM cmdlet imports the previously saved state of a virtual machine from an xml file. This cmdlet is useful when you want to subsequently create a new virtual machine from the imported data.
-      
+
         Note: Using Export-AzureVM, followed by Remove-AzureVM and then Import-AzureVM to recreate a virtual machine can cause the resultant virtual machine to have a different IP address than the original.</maml:para>
 	</maml:description>
 	<command:syntax>
@@ -17757,7 +17757,7 @@ This command gets the virtual machine object with the name &quot;MyDemoVM01&quot
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>Slot</maml:name>
 				<maml:description>
-					<maml:para>Specifies a deployment slot. Valid values are: 
+					<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -17793,7 +17793,7 @@ The default value is Production.</maml:para>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>Slot</maml:name>
 				<maml:description>
-					<maml:para>Specifies a deployment slot. Valid values are: 
+					<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -17827,7 +17827,7 @@ The default value is Production.</maml:para>
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 			<maml:name>Slot</maml:name>
 			<maml:description>
-				<maml:para>Specifies a deployment slot. Valid values are: 
+				<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -20496,7 +20496,7 @@ Get-AzureVMImage `
 	</command:details>
 	<maml:description>
 	<!--This is the Description section-->
-		<maml:para>The ReSet-AzureRoleInstance cmdlet requests a reboot or a reimage of a role instance that is running in a deployment. This operation executes synchronously. When you reboot a role instance, Microsoft Azure takes the instance offline, restarts the underlying operating system for that instance, and brings the instance back online. Any data that is written to the local disk persists across reboots. Any data that is in-memory is lost. Reimaging a role instance results in different behavior depending on the type of role. For a web or worker role, when the role is reimaged, Microsoft Azure takes the role offline and writes a fresh installation of the Microsoft Azure guest operating system to the virtual machine. The role is then brought back online. For a VM role, when the role is reimaged, Microsoft Azure takes the role offline, reapplies the custom image that you provided for it, and brings the role back online. 
+		<maml:para>The ReSet-AzureRoleInstance cmdlet requests a reboot or a reimage of a role instance that is running in a deployment. This operation executes synchronously. When you reboot a role instance, Microsoft Azure takes the instance offline, restarts the underlying operating system for that instance, and brings the instance back online. Any data that is written to the local disk persists across reboots. Any data that is in-memory is lost. Reimaging a role instance results in different behavior depending on the type of role. For a web or worker role, when the role is reimaged, Microsoft Azure takes the role offline and writes a fresh installation of the Microsoft Azure guest operating system to the virtual machine. The role is then brought back online. For a VM role, when the role is reimaged, Microsoft Azure takes the role offline, reapplies the custom image that you provided for it, and brings the role back online.
         Microsoft Azure attempts to maintain data in any local storage resources when the role is reimaged; however, in case of a transient hardware failure, the local storage resource may be lost. If your application requires that data persist, writing to a durable data source, such as a Microsoft Azure drive, is recommended. Any data that is written to a local directory other than that defined by the local storage resource will be lost when the role is reimaged.</maml:para>
 	</maml:description>
 	<command:syntax>
@@ -24989,7 +24989,7 @@ C:\PS&gt; Get-AzureVM -ServiceName &quot;MyService&quot; -Name &quot;MyVM&quot; 
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>Slot</maml:name>
 				<maml:description>
-					<maml:para>Specifies a deployment slot. Valid values are: 
+					<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -25008,7 +25008,7 @@ The default value is Production.</maml:para>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 				<maml:name>AntimalwareConfiguration</maml:name>
 				<maml:description>
-					<maml:para>Specifies an XmlDocument object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+					<maml:para>Specifies an XmlDocument object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 &lt;AntimalwareConfig&gt;&lt;AntimalwareEnabled&gt;true&lt;/AntimalwareEnabled&gt;&lt;/AntimalwareConfig&gt;</maml:para>
 				</maml:description>
@@ -25017,7 +25017,7 @@ The default value is Production.</maml:para>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="4">
 				<maml:name>Monitoring</maml:name>
 				<maml:description>
-					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -25044,7 +25044,7 @@ The default value is Production.</maml:para>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>Slot</maml:name>
 				<maml:description>
-					<maml:para>Specifies a deployment slot. Valid values are: 
+					<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -25063,7 +25063,7 @@ The default value is Production.</maml:para>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 				<maml:name>AntimalwareConfiguration</maml:name>
 				<maml:description>
-					<maml:para>Specifies an XmlDocument object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+					<maml:para>Specifies an XmlDocument object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 &lt;AntimalwareConfig&gt;&lt;AntimalwareEnabled&gt;true&lt;/AntimalwareEnabled&gt;&lt;/AntimalwareConfig&gt;</maml:para>
 				</maml:description>
@@ -25072,7 +25072,7 @@ The default value is Production.</maml:para>
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="4">
 				<maml:name>Monitoring</maml:name>
 				<maml:description>
-					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -25104,7 +25104,7 @@ The default value is Production.</maml:para>
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 			<maml:name>Slot</maml:name>
 			<maml:description>
-				<maml:para>Specifies a deployment slot. Valid values are: 
+				<maml:para>Specifies a deployment slot. Valid values are:
 
 -- Production
 -- Staging
@@ -25133,7 +25133,7 @@ The default value is Production.</maml:para>
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 			<maml:name>AntimalwareConfiguration</maml:name>
 			<maml:description>
-				<maml:para>Specifies an XmlDocument object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+				<maml:para>Specifies an XmlDocument object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 &lt;AntimalwareConfig&gt;&lt;AntimalwareEnabled&gt;true&lt;/AntimalwareEnabled&gt;&lt;/AntimalwareConfig&gt;</maml:para>
 			</maml:description>
@@ -25147,7 +25147,7 @@ The default value is Production.</maml:para>
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="4">
 			<maml:name>Monitoring</maml:name>
 			<maml:description>
-				<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+				<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -25210,7 +25210,7 @@ The default value is Production.</maml:para>
 			<maml:introduction>
 				<maml:para></maml:para>
 			</maml:introduction>
-			<dev:code>PS C:\&gt;[System.Xml.XmlDocument] $XmlConfig = New-Object System.Xml.XmlDocument 
+			<dev:code>PS C:\&gt;[System.Xml.XmlDocument] $XmlConfig = New-Object System.Xml.XmlDocument
 PS C:\&gt; $XmlConfig.load(&apos;C:\configuration\contosoVM.xml&apos;)
 PS C:\&gt; Set-AzureServiceAntimalwareExtension -ServiceName &quot;ContosoService03&quot; -AntimalwareConfiguration $XmlConfig
 Operation succeeded</dev:code>
@@ -25228,9 +25228,9 @@ Operation succeeded</dev:code>
 			<maml:introduction>
 				<maml:para></maml:para>
 			</maml:introduction>
-			<dev:code>PS C:\&gt;[System.Xml.XmlDocument] $XmlConfig = New-Object System.Xml.XmlDocument 
+			<dev:code>PS C:\&gt;[System.Xml.XmlDocument] $XmlConfig = New-Object System.Xml.XmlDocument
 PS C:\&gt; $XmlConfig.load(&apos;C:\configuration\contosoVM.xml&apos;)
-PS C:\&gt; Set-AzureServiceAntimalwareExtension -ServiceName &quot;ContosoService03&quot; -Slot &quot;Staging&quot; -AntimalwareConfiguration $XmlConfig 
+PS C:\&gt; Set-AzureServiceAntimalwareExtension -ServiceName &quot;ContosoService03&quot; -Slot &quot;Staging&quot; -AntimalwareConfiguration $XmlConfig
 Operation succeeded</dev:code>
 			<dev:remarks>
 				<maml:para>The first two commands create an XmlDocument object that contains a configuration for the Microsoft Antimalware extension, and then stores it in the $XmlConfig variable.</maml:para>
@@ -25246,7 +25246,7 @@ Operation succeeded</dev:code>
 			<maml:introduction>
 				<maml:para></maml:para>
 			</maml:introduction>
-			<dev:code>PS C:\&gt;[System.Xml.XmlDocument] $XmlConfig = New-Object System.Xml.XmlDocument 
+			<dev:code>PS C:\&gt;[System.Xml.XmlDocument] $XmlConfig = New-Object System.Xml.XmlDocument
 PS C:\&gt; $XmlConfig.load(&apos;C:\configuration\contosoVM.xml&apos;)
 PS C:\&gt; $StorageContext = New-AzureStorageContext -StorageAccountName &quot;contosostoragemain&quot; -StorageAccountKey (Get-AzureStorageKey -StorageAccountName &quot;Contosostoragemain&quot;).Primary
 PS C:\&gt; Set-AzureServiceAntimalwareExtension -ServiceName &quot;ContosoService03&quot; -AntimalwareConfiguration $XmlConfig -Monitoring ON -StorageContext $StorageContext</dev:code>
@@ -28628,7 +28628,7 @@ PS C:\&gt; Set-AzureServiceAntimalwareExtension -ServiceName &quot;ContosoServic
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="named">
 				<maml:name>ConfigurationName</maml:name>
 				<maml:description>
-					<maml:para>Name of the configuration script or module that will be invoked by the DSC Extension. 
+					<maml:para>Name of the configuration script or module that will be invoked by the DSC Extension.
 
 The value of this parameter  must be the name of one of the configurations functions contained in the scripts or modules packaged in the ConfigurationArchive.
 
@@ -28747,7 +28747,7 @@ If omitted, this parameter will default to the name of the file given by the Con
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="named">
 			<maml:name>ConfigurationName</maml:name>
 			<maml:description>
-				<maml:para>Name of the configuration script or module that will be invoked by the DSC Extension. 
+				<maml:para>Name of the configuration script or module that will be invoked by the DSC Extension.
 
 The value of this parameter  must be the name of one of the configurations functions contained in the scripts or modules packaged in the ConfigurationArchive.
 
@@ -28899,24 +28899,24 @@ If omitted, this parameter will default to the name of the file given by the Con
 
 DeploymentName              : my-vm-svc
 Name                        : my-vm
-Label                       : 
+Label                       :
 VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
 InstanceStatus              : ReadyRole
 IpAddress                   : 10.10.10.10
-InstanceStateDetails        : 
+InstanceStateDetails        :
 PowerState                  : Started
-InstanceErrorCode           : 
+InstanceErrorCode           :
 InstanceFaultDomain         : 0
 InstanceName                : my-vm
 InstanceUpgradeDomain       : 0
 InstanceSize                : Small
-AvailabilitySetName         : 
+AvailabilitySetName         :
 DNSName                     : http://my-vm-svc.cloudapp.net/
 Status                      : ReadyRole
 GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
 ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
-PublicIPAddress             : 
-PublicIPName                : 
+PublicIPAddress             :
+PublicIPName                :
 ServiceName                 : my-vm-svc
 OperationDescription        : Get-AzureVM
 OperationId                 : a0217a7af900c1f8a212299a3333cdbd6
@@ -28926,7 +28926,7 @@ OperationStatus             : OK</dev:code>
 			</dev:remarks>
 			<command:commandLines>
 				<command:commandLine>
-					<command:commandText>-----------This command configures the DSC extension on a VM. 
+					<command:commandText>-----------This command configures the DSC extension on a VM.
 
 The &quot;MyConfiguration.ps1.zip&quot; package must have been previously uploaded to Azure storage using the Publish-AzureVMDscConfiguration command and includes the &quot;MyConfiguration.ps1&quot; script and the modules it depends on.
 
@@ -28939,29 +28939,29 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 			<maml:introduction>
 				<maml:para></maml:para>
 			</maml:introduction>
-			<dev:code>PS C:\&gt; $vm | Set-AzureVMDscExtension -ConfigurationArchive MyConfiguration.ps1.zip  -ConfigurationName MyConfiguration -ConfigurationArgument @{ Credential = Get-Credential } -ConfigurationDataPath MyConfigurationData.psd1 
+			<dev:code>PS C:\&gt; $vm | Set-AzureVMDscExtension -ConfigurationArchive MyConfiguration.ps1.zip  -ConfigurationName MyConfiguration -ConfigurationArgument @{ Credential = Get-Credential } -ConfigurationDataPath MyConfigurationData.psd1
 
 
   DeploymentName              : my-vm-svc
   Name                        : my-vm
-  Label                       : 
+  Label                       :
   VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
   InstanceStatus              : ReadyRole
   IpAddress                   : 10.10.10.10
-  InstanceStateDetails        : 
+  InstanceStateDetails        :
   PowerState                  : Started
-  InstanceErrorCode           : 
+  InstanceErrorCode           :
   InstanceFaultDomain         : 0
   InstanceName                : my-vm
   InstanceUpgradeDomain       : 0
   InstanceSize                : Small
-  AvailabilitySetName         : 
+  AvailabilitySetName         :
   DNSName                     : http://my-vm-svc.cloudapp.net/
   Status                      : ReadyRole
   GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVMModel.GuestAgentStatus
   ResourceExtensionStatusList : {Microsoft.Compute.BGInfo, Microsoft.Powershell.DSC}
-  PublicIPAddress             : 
-  PublicIPName                : 
+  PublicIPAddress             :
+  PublicIPName                :
   ServiceName                 : my-vm-svc
   OperationDescription        : Get-AzureVM
   OperationId                 : a0217a7af900c1f8a212299a3333cdbd7
@@ -29769,7 +29769,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 			<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>AntimalwareConfigFile</maml:name>
 				<maml:description>
-					<maml:para>Specifies the absolute path to the Microsoft Antimalware configuration file. Do not specify this parameter if you specify the AntimalwareConfiguration parameter. The configuration file must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+					<maml:para>Specifies the absolute path to the Microsoft Antimalware configuration file. Do not specify this parameter if you specify the AntimalwareConfiguration parameter. The configuration file must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 { &quot;AntimalwareEnabled&quot;: true }</maml:para>
 				</maml:description>
@@ -29785,7 +29785,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 				<maml:name>Monitoring</maml:name>
 				<maml:description>
-					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -29812,7 +29812,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 			<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 				<maml:name>AntimalwareConfiguration</maml:name>
 				<maml:description>
-					<maml:para>Specifies a string object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. Do not specify this parameter if you specify the AntimalwareConfigFile parameter. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+					<maml:para>Specifies a string object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. Do not specify this parameter if you specify the AntimalwareConfigFile parameter. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 	{ &quot;AntimalwareEnabled&quot;: true }Microsoft Antimalware JSON configuration sample:
 
@@ -29837,12 +29837,12 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 
 			RealtimeProtectionEnabled: true/false.   true = Enable. false = Disable. Default is true
 
-			ScheduledScanSettings:  
+			ScheduledScanSettings:
 			  isEnabled=true/false
 			  day=0-8 (0-daily, 1-Sunday, 2-Monday, ...., 7-Saturday, 8-Disabled)
 			  time=0-1440 (measured in minutes after midnight - 60-&gt;1AM, 120 -&gt; 2AM, ... )
 			  scanType=&quot;Quick&quot; or &quot;Full&quot; (Default is Quick)
-			  Note: If isEnabled=true is the only setting provided, the following defaults are set: day=7 (Saturday), time=120 (2 AM), scanType=&quot;Quick&quot; 
+			  Note: If isEnabled=true is the only setting provided, the following defaults are set: day=7 (Saturday), time=120 (2 AM), scanType=&quot;Quick&quot;
 
 			Exclusions:
 			Multiple exclusions in the same list are specified by using semicolon delimiters.
@@ -29860,7 +29860,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 				<maml:name>Monitoring</maml:name>
 				<maml:description>
-					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -29928,7 +29928,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 			<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 				<maml:name>Monitoring</maml:name>
 				<maml:description>
-					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+					<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -29962,7 +29962,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 		<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 			<maml:name>AntimalwareConfigFile</maml:name>
 			<maml:description>
-				<maml:para>Specifies the absolute path to the Microsoft Antimalware configuration file. Do not specify this parameter if you specify the AntimalwareConfiguration parameter. The configuration file must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+				<maml:para>Specifies the absolute path to the Microsoft Antimalware configuration file. Do not specify this parameter if you specify the AntimalwareConfiguration parameter. The configuration file must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 { &quot;AntimalwareEnabled&quot;: true }</maml:para>
 			</maml:description>
@@ -29988,7 +29988,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 		<command:parameter required="false" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="3">
 			<maml:name>Monitoring</maml:name>
 			<maml:description>
-				<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are: 
+				<maml:para>Specifies whether to collect Microsoft Antimalware events. Valid values are:
 
 -- ON. Collect Microsoft Antimalware events to storage context.
 -- OFF. Do not collect Microsoft Antimalware events.</maml:para>
@@ -30027,7 +30027,7 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 		<command:parameter required="true" variableLength="false" globbing="false" pipelineInput="true (ByPropertyName)" position="1">
 			<maml:name>AntimalwareConfiguration</maml:name>
 			<maml:description>
-				<maml:para>Specifies a string object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. Do not specify this parameter if you specify the AntimalwareConfigFile parameter. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension: 
+				<maml:para>Specifies a string object that contains the Microsoft Antimalware configuration. This object must not be $Null or empty. Do not specify this parameter if you specify the AntimalwareConfigFile parameter. The configuration object must include, at a minimum, the following content to enable the Microsoft Antimalware extension:
 
 	{ &quot;AntimalwareEnabled&quot;: true }Microsoft Antimalware JSON configuration sample:
 
@@ -30052,12 +30052,12 @@ The &quot;MyConfiguration&quot; argument indicates the specific DSC configuratio
 
 			RealtimeProtectionEnabled: true/false.   true = Enable. false = Disable. Default is true
 
-			ScheduledScanSettings:  
+			ScheduledScanSettings:
 			  isEnabled=true/false
 			  day=0-8 (0-daily, 1-Sunday, 2-Monday, ...., 7-Saturday, 8-Disabled)
 			  time=0-1440 (measured in minutes after midnight - 60-&gt;1AM, 120 -&gt; 2AM, ... )
 			  scanType=&quot;Quick&quot; or &quot;Full&quot; (Default is Quick)
-			  Note: If isEnabled=true is the only setting provided, the following defaults are set: day=7 (Saturday), time=120 (2 AM), scanType=&quot;Quick&quot; 
+			  Note: If isEnabled=true is the only setting provided, the following defaults are set: day=7 (Saturday), time=120 (2 AM), scanType=&quot;Quick&quot;
 
 			Exclusions:
 			Multiple exclusions in the same list are specified by using semicolon delimiters.
