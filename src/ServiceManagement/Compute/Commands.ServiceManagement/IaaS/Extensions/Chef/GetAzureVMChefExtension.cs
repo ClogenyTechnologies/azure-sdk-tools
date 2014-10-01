@@ -20,14 +20,12 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
     [Cmdlet(
         VerbsCommon.Get,
-        VirtualMachineChefExtensionNoun,
-        DefaultParameterSetName = GetChefExtensionParamSetName),
+        VirtualMachineChefExtensionNoun),
     OutputType(
         typeof(VirtualMachineExtensionContext))]
     public class GetAzureVMChefExtensionCommand : VirtualMachineChefExtensionCmdletBase
     {
-        protected const string GetChefExtensionParamSetName = "GetChefExtension";
-
+        
         internal void ExecuteCommand()
         {
             base.extensionName = GetPlatformSpecificExtensionName();

@@ -35,8 +35,13 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
         // This helper method is used for Get/Remove AzureVMChefExtension.
         protected string GetPlatformSpecificExtensionName()
         {
-            return VM.GetInstance().OSVirtualHardDisk.OS.Equals("Windows",
+            var vm = VM.GetInstance();
+            if (vm.OSVirtualHardDisk != null)
+            {
+                return vm.OSVirtualHardDisk.OS.Equals("Windows",
                 System.StringComparison.OrdinalIgnoreCase) ? ExtensionDefaultName : LinuxExtensionName;
+            }
+            else { return null; }
         }
     }
 }
