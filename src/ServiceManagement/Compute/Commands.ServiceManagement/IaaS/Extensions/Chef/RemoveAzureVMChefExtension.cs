@@ -19,12 +19,10 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
     [Cmdlet(
         VerbsCommon.Remove,
-        VirtualMachineChefExtensionNoun,
-        DefaultParameterSetName = RemoveChefExtensionParamSetName),
+        VirtualMachineChefExtensionNoun),
     OutputType(typeof(IPersistentVM))]
     public class RemoveAzureVMChefExtensionCommand : VirtualMachineChefExtensionCmdletBase
     {
-        protected const string RemoveChefExtensionParamSetName = "RemoveChefExtension";
 
         internal void ExecuteCommand()
         {
