@@ -12,16 +12,16 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.WindowsAzure.Commands.Test.Utilities.Common;
+using Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.WindowsAzure.Commands.Utilities;
+using System.Management.Automation;
+
 namespace Microsoft.WindowsAzure.Commands.ServiceManagement.Test.UnitTests.Cmdlets.IaaS.Extensions
 {
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Commands.Test.Utilities.Common;
-    using ServiceManagement.IaaS.Extensions;
-    using Microsoft.WindowsAzure.Commands.Utilities;
-    using System.Management.Automation;
-
     [TestClass]
     public class RemoveAzureVMChefExtensionCommandTests : TestBase
     {
