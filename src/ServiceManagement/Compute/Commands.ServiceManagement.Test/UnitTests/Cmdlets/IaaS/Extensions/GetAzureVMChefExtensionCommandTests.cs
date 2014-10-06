@@ -12,17 +12,17 @@
 // limitations under the License.
 // ----------------------------------------------------------------------------------
 
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.WindowsAzure.Commands.Test.Utilities.Common;
-using Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.WindowsAzure.Commands.Utilities;
-using System.Management.Automation;
-using Microsoft.WindowsAzure.Commands.ServiceManagement.Model;
-
 namespace Microsoft.WindowsAzure.Commands.ServiceManagement.Test.UnitTests.Cmdlets.IaaS.Extensions
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using Commands.Test.Utilities.Common;
+    using ServiceManagement.IaaS.Extensions;
+    using VisualStudio.TestTools.UnitTesting;
+    using Microsoft.WindowsAzure.Commands.Utilities;
+    using System.Management.Automation;
+    using Model;
+
     public class MockIPersistentVMForChefExtension : IPersistentVM
     {
         public PersistentVM GetInstance()
