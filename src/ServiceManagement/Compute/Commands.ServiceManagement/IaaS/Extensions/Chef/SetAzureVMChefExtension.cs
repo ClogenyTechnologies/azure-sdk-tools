@@ -78,9 +78,9 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
 
         [Parameter(
             ValueFromPipelineByPropertyName = true,
-            HelpMessage = "Flag to opt for auto chef-extension update. Default is true")]
+            HelpMessage = "Flag to opt for auto chef-client update. Default is false")]
         [ValidateNotNullOrEmpty]
-        public SwitchParameter DisableAutoUpdate { get; set; }
+        public SwitchParameter AutoUpdateClient { get; set; }
 
         [Parameter(
             Mandatory = true,
@@ -147,7 +147,7 @@ namespace Microsoft.WindowsAzure.Commands.ServiceManagement.IaaS.Extensions
             bool IsChefServerUrlEmpty = string.IsNullOrEmpty(this.ChefServerUrl);
             bool IsValidationClientNameEmpty = string.IsNullOrEmpty(this.ValidationClientName);
             bool IsRunListEmpty = string.IsNullOrEmpty(this.RunList);
-            string AutoUpdate = this.DisableAutoUpdate.IsPresent ? "false" : "true";
+            string AutoUpdateClient = this.AutoUpdateClient.IsPresent ? "true" : "false";
 
             //Cases handled:
             // 1. When clientRb given by user and:
@@ -200,13 +200,13 @@ validation_client_name 	\""{1}\""
             if (IsRunListEmpty)
             {
                 this.PublicConfiguration = string.Format("{{{0},{1}}}",
-                    string.Format(AutoUpdateTemplate, AutoUpdate),
+                    string.Format(AutoUpdateTemplate, AutoUpdateClient),
                     string.Format(ClientRbTemplate, ClientConfig));
             }
             else
             {
                 this.PublicConfiguration = string.Format("{{{0},{1},{2}}}",
-                    string.Format(AutoUpdateTemplate, AutoUpdate),
+                    string.Format(AutoUpdateTemplate, AutoUpdateClient),
                     string.Format(ClientRbTemplate, ClientConfig),
                     string.Format(RunListTemplate, this.RunList));
             }
